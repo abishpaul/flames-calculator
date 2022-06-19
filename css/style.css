@@ -1,0 +1,94 @@
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color:#FE73A4;
+    color:#fff;
+    font-family: happy-sans;
+}
+
+.logo{
+  
+    text-align: center;
+    mix-blend-mode:Luminosity;
+    pointer-events: none;
+}
+.title{
+    text-align: center;
+}
+
+.form{
+    min-width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    flex-wrap: wrap;
+    
+   
+}
+
+.form input {
+    font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #fff;
+  color:#D04576;
+  border: 0px;
+  border-radius: 3px;
+  margin: 30px 0 0px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  
+footer {
+
+
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: .1rem;
+   
+    text-align: center;
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
