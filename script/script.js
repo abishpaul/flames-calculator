@@ -2,8 +2,8 @@ $(document).ready(function(){
     $('#reset').hide();
     $('button').on("click",function(ev){
     ev.preventDefault();  
-      var inputOne = $('.boys').val();
-      var inputTwo = $('.girls').val();
+      var inputOne = $('.yourName').val();
+      var inputTwo = $('.loverName').val();
       var flames = ['Friends','Love','Affair','Marriage','Enemy','Sister'];
       if(inputOne!="" && inputTwo!="")
         {
@@ -40,3 +40,7 @@ $(document).ready(function(){
     
     
   });
+
+
+
+  
