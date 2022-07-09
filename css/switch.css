@@ -1,175 +1,87 @@
+body {
 
-.heart-switch {
-     text-align: center;
-    --duration: 0.45s;
-    --stroke: #D1D6EE;
-    --stroke-active: #CA3F70;
-    --fill: #fff;
-    --fill-active: #CA3F70;
-    --shadow: rgba(0, 9, 61, 0.25);
-    cursor: pointer;
-    position: relative;
-    transform: scale(var(--s, 1)) translateZ(0);
-    transition: transform 0.2s;
-    -webkit-tap-highlight-color: transparent;
+  text-align: center;
+ 
+}
+.bubbly-button {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  display: inline-block;
+  font-size: 1em;
+  padding: 1em 2em;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  background-color:#D04576;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 2px 25px #D04576;
+}
+.bubbly-button:focus {
+  outline: 0;
+}
+.bubbly-button:before, .bubbly-button:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: -1000;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+.bubbly-button:before {
+  display: none;
+  top: -75%;
+  background-image: radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, transparent 20%, #fff 20%, transparent 30%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, transparent 10%, #fff 15%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+.bubbly-button:after {
+  display: none;
+  bottom: -75%;
+  background-image: radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, transparent 10%, #fff 15%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%), radial-gradient(circle, #fff 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+.bubbly-button:active {
+  transform: scale(0.9);
+  background-color: #D04576;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+}
+.bubbly-button.animate:before {
+  display: block;
+  animation: topBubbles ease-in-out 0.75s forwards;
+}
+.bubbly-button.animate:after {
+  display: block;
+  animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
   }
-  .heart-switch:active {
-    --s: 0.95;
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
   }
-  .heart-switch input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    position: absolute;
-    outline: none;
-    border: none;
-    pointer-events: none;
-    z-index: 1;
-    margin: 0;
-    padding: 0;
-    left: 1px;
-    top: 1px;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 1px 3px 0 var(--shadow);
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
-  .heart-switch input + svg {
-    width: 80px;
-    height: 55px;
-    fill: var(--fill);
-    stroke: var(--stroke);
-    stroke-width: 1px;
-    stroke-linejoin: round;
-    display: block;
-    transition: stroke var(--duration), fill var(--duration);
+}
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
   }
-  .heart-switch input:not(:checked) {
-    animation: uncheck var(--duration) linear forwards;
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
   }
-  .heart-switch input:checked {
-    animation: check var(--duration) linear forwards;
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
-  .heart-switch input:checked + svg {
-    --fill: var(--fill-active);
-    --stroke: var(--stroke-active);
-
-
-    
-  }
-  @keyframes uncheck {
-    0% {
-      transform: rotate(-30deg) translateX(13.5px) translateY(8px);
-    }
-    50% {
-      transform: rotate(30deg) translateX(9px);
-    }
-    75% {
-      transform: rotate(30deg) translateX(4.5px) scaleX(1.1);
-    }
-    100% {
-      transform: rotate(30deg);
-    }
-  }
-  @keyframes check {
-    0% {
-      transform: rotate(30deg);
-    }
-    25% {
-      transform: rotate(30deg) translateX(4.5px) scaleX(1.1);
-    }
-    50% {
-      transform: rotate(30deg) translateX(9px);
-    }
-    100% {
-      transform: rotate(-30deg) translateX(13.5px) translateY(8px);
-    }
-  }
-  /* html {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-  }
-  * {
-    box-sizing: inherit;
-  }
-  *:before, *:after {
-    box-sizing: inherit;
-  }
-  body {
-    min-height: 100vh;
-    display: flex;
-    font-family: 'Roboto', Arial;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background: #F6F8FF;
-  }
-  body .heart-switch {
-    margin: 12px 0;
-  }
-  body .dribbble {
-    position: fixed;
-    display: block;
-    right: 20px;
-    bottom: 20px;
-  }
-  body .dribbble img {
-    display: block;
-    height: 28px;
-  }
-  body .twitter {
-    position: fixed;
-    display: block;
-    right: 64px;
-    bottom: 14px;
-  }
-  body .twitter svg {
-    width: 32px;
-    height: 32px;
-    fill: #1da1f2;
-  }
-   */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-
-   @keyframes uncheck {
-    0% {
-      transform: rotate(-30deg) translateX(13.5px) translateY(8px);
-    }
-    50% {
-      transform: rotate(30deg) translateX(9px);
-    }
-    75% {
-      transform: rotate(30deg) translateX(4.5px) scaleX(1.1);
-    }
-    100% {
-      transform: rotate(30deg);
-    }
-  }
-  @keyframes check {
-    0% {
-      transform: rotate(30deg);
-    }
-    25% {
-      transform: rotate(30deg) translateX(4.5px) scaleX(1.1);
-    }
-    50% {
-      transform: rotate(30deg) translateX(9px);
-    }
-    100% {
-      transform: rotate(-30deg) translateX(13.5px) translateY(8px);
-    }
-  } */
+}
